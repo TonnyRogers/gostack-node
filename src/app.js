@@ -25,7 +25,7 @@ class App {
     this.server.use(Sentry.Handlers.requestHandler());
     this.server.use(express.json());
     this.server.use(cors({
-      origin: "*",
+      origin: 'https://agitated-swartz-1728c5.netlify.app/',
       methods: "GET,PUT,PATCH,POST,DELETE",
       optionsSuccessStatus: 200,
     }));
