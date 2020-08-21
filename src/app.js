@@ -22,9 +22,13 @@ class App {
   }
 
   middlewares() {
-    this.server.use(cors());
     this.server.use(Sentry.Handlers.requestHandler());
     this.server.use(express.json());
+    this.server.use(cors({
+      origin: "*",
+      methods: "GET,PUT,PATCH,POST,DELETE",
+      optionsSuccessStatus: 200,
+    }));
     this.server.use(
       '/files',
       express.static(path.resolve(__dirname, '..', 'temp', 'uploads'))
